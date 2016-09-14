@@ -125,8 +125,8 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 # Flat device tree
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dtb.img:dt.img
+# PRODUCT_COPY_FILES += \
+#   $(LOCAL_PATH)/dtb.img:dt.img
 
 # Gello
 PRODUCT_PACKAGES += \
