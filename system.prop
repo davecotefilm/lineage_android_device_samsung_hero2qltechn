@@ -1,22 +1,25 @@
 # Audio
 audio_hal.period_size=192
-audio.offload.buffer.size.kb=1024
+audio.offload.buffer.size.kb=32
+audio.offload.multiple.enabled=false
+audio.offload.passthrough=false
 audio.offload.multiple.enabled=false
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
+audio.offload.track.enabled=true
 af.fast_track_multiplier=1
 av.offload.enable=true
-
 ro.qc.sdk.audio.fluencetype=fluence
 ro.qc.sdk.audio.ssr=false
 use.voice.path.for.pcm.voip=true
 
+##fluencetype can be "fluence" or "fluencepro" or "none"
+ro.qc.sdk.audio.fluencetype=none
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 
 rec.playback.conc.disabled=true
-
 audio.ds1.metainfo.key=273
 dmid=-1286820014
 
@@ -35,6 +38,9 @@ ro.qualcomm.bt.hci_transport=smd
 
 # Camera
 camera2.portability.force_api=1
+
+# Data modules
+persist.data.dpm.enable=true
 
 # Display
 #persist.hwc.mdpcomp.enable=true
@@ -74,6 +80,13 @@ persist.radio.apm_sim_not_pwdn=0
 persist.radio.apm_mdm_not_pwdn=1
 persist.radio.cs_srv_type=1
 persist.radio.snapshot_timer=0
+
+# Multi Sim
+persist.radio.multisim.config=dsds
+ro.multisim.simslotcount=2
+rild.libpath=/system/lib64/libsec-ril.so
+rild.libpath2=/system/lib64/libsec-ril-dsds.so
+ro.telephony.default_network=9,1
 
 # Wifi
 wifi.interface=wlan0

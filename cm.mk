@@ -12,8 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/samsung/hero2qltechn/full_hero2qltechn.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, device/samsung/hero2qltechn/device.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
@@ -22,5 +24,7 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 PRODUCT_DEVICE := hero2qltechn
 PRODUCT_NAME := cm_hero2qltechn
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := hero2qltechn
+PRODUCT_MODEL := SM-G9350
 PRODUCT_MANUFACTURER := samsung
+
+$(call inherit-product-if-exists, vendor/samsung/hero2qltechn/hero2qltechn-vendor.mk)
