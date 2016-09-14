@@ -51,7 +51,7 @@ BOARD_RAMDISK_OFFSET     := 0x02200000
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/hero2qltechn
-TARGET_KERNEL_CONFIG := hero2qlte_chnzc_defconfig
+TARGET_KERNEL_CONFIG := cm_hero2qlte_chnzc_defconfig
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 # ANT+
