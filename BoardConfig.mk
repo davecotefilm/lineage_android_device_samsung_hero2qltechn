@@ -14,9 +14,12 @@
 # limitations under the License.
 #
 
-BOARD_VENDOR := samsung
 
+BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/hero2qltechn
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_OTA_ASSERT_DEVICE := hero2qltechn,hero2qlte
+USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -134,7 +137,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 AUDIO_FEATURE_ENABLED_FM := true
 
 # Init
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc0/
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
@@ -160,7 +163,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
-TARGET_RIL_VARIANT := caf
+BOARD_PROVIDES_LIBRIL := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
