@@ -162,6 +162,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
 TARGET_RIL_VARIANT := caf
+SIM_COUNT := 2
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
