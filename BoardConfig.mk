@@ -19,7 +19,7 @@ BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/hero2qltechn
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 TARGET_OTA_ASSERT_DEVICE := hero2qltechn
-USE_CLANG_PLATFORM_BUILD := true
+# USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -92,13 +92,11 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
 
-# Camera
-# TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
-# USE_DEVICE_SPECIFIC_CAMERA := true
-
 # Charger
-# BOARD_CHARGER_ENABLE_SUSPEND := true
-# BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_BATTERY_DEVICE_NAME := battery
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
@@ -158,12 +156,12 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
-# TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-# TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
-# TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
+TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
+TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
