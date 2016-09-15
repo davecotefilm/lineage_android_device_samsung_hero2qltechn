@@ -231,11 +231,8 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
-
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig \
-    librmnetctl
+    rild.libpath=/system/lib64/libsec-ril.so
+    rild.libpath2=/system/lib64/libsec-ril-dsds.so
 
 # Sensors
 PRODUCT_PACKAGES += \
