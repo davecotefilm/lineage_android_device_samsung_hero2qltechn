@@ -19,7 +19,7 @@ BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/hero2qltechn
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 TARGET_OTA_ASSERT_DEVICE := hero2qltechn
-# USE_CLANG_PLATFORM_BUILD := true
+USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm64
