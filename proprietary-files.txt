@@ -35,6 +35,7 @@ vendor/firmware/bcm4359C0_V0033.0058_semco.hcd
 vendor/firmware/bcm4359C0_V0033.0059_murata.hcd
 
 # DRM
+bin/qseecomd
 bin/qseecom_sample_client
 bin/qseecom_security_test
 vendor/bin/qseeproxysampledaemon
@@ -144,6 +145,9 @@ etc/firmware/a530v2_seq.fw2
 etc/firmware/a530v3_gpmu.fw2
 etc/firmware/a530v3_seq.fw2
 
+# IPA
+bin/ipacm
+
 # Keystore
 lib/hw/keystore.default.so
 lib/hw/keystore.mdfpp.so
@@ -170,15 +174,14 @@ etc/firmware/ois_fw_sec.bin
 #vendor/lib64/libQtiTether.so
 
 # Perf
-# bin/energy-awareness
-# bin/msm_irqbalance
+bin/energy-awareness
+bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib64/libqti-perfd-client.so
 vendor/lib/libqti-perfd-client.so
 
 # Peripheral manager
-#bin/pm-proxy
-#bin/pm-service
+bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
@@ -220,9 +223,12 @@ vendor/lib64/libqmiservices.so
 #vendor/lib64/libqti-wl.so
 
 # Radio
+bin/netmgrd
+bin/qmuxd
+bin/radish
+bin/rmt_storage
 #-app/QtiTelephonyService/QtiTelephonyService.apk
 #-app/shutdownlistener/shutdownlistener.apk
-bin/radish
 #-framework/qcnvitems.jar
 #-framework/qcrilhook.jar
 framework/telephony-common.jar
@@ -262,6 +268,7 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_client_helper.so
 
 # Radio - IMS
+bin/imscmservice
 vendor/lib64/lib-ims-rcscmjni.so
 vendor/lib64/lib-imsrcs.so
 vendor/lib64/lib-imsrcscm.so
@@ -293,11 +300,13 @@ vendor/lib64/hw/sensorhubs.msm8996.so
 
 
 # Thermal
+vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
 # Time services
+bin/time_daemon
 #-app/TimeService/TimeService.apk
 vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
@@ -325,6 +334,7 @@ vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbmapper.so
 
 # Camera
+bin/mm-qcamera-daemon
 lib/libarcsoft_selfie_camera_lite.so
 lib/libqomx_core.so
 lib/libQjpeg.so
