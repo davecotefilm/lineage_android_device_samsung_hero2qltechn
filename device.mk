@@ -117,8 +117,16 @@ PRODUCT_PACKAGES += \
     copybit.msm8996 \
     gralloc.msm8996 \
     hwcomposer.msm8996 \
-    memtrack.msm8996 \
-    liboverlay
+    liboverlay \
+    libtinyxml
+
+# Display calibration
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
+# Doze mode
+PRODUCT_PACKAGES += \
+    Doze
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -138,13 +146,9 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.mdm.sh \
-    init.qcom.class_core.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.factory.rc \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.sh \
-    init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
@@ -164,6 +168,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     ipacm
+
+# IPv6
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
 
 # IRQ
 PRODUCT_COPY_FILES += \
