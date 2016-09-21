@@ -11,10 +11,34 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE		:= init.qcom.power.rc
+LOCAL_MODULE		:= init.mdm.sh
 LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= etc/init.qcom.power.rc
+LOCAL_SRC_FILES		:= etc/init.mdm.sh
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.qcom.class_core.sh
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.qcom.class_core.sh
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.qcom.early_boot.sh
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.qcom.early_boot.sh
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.qcom.factory.rc
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.qcom.factory.rc
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -27,10 +51,26 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.qcom.sensors.sh
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.qcom.sensors.sh
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE		:= init.qcom.sh
 LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= etc/init.qcom.sh
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.qcom.syspart_fixup.sh
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.qcom.syspart_fixup.sh
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -51,12 +91,41 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.target.rc
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.target.rc
+LOCAL_MODULE_PATH	:=	$(TARGET_ROOT_OUT)
+include	$(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.rilchip.rc
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.rilchip.rc
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.rilcommon.rc
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.rilcommon.rc
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE		:= init.usb.configfs.rc
+LOCAL_MODULE_TAGS	:= optional eng
+LOCAL_MODULE_CLASS	:= ETC
+LOCAL_SRC_FILES		:= etc/init.usb.configfs.rc
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE		:= ueventd.qcom.rc
 LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= etc/ueventd.qcom.rc
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
-
-# Configuration scripts
-

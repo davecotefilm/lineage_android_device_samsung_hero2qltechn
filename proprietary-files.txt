@@ -40,7 +40,19 @@ bin/qseecom_sample_client
 bin/qseecom_security_test
 vendor/bin/qseeproxysampledaemon
 vendor/lib/libQSEEComAPI.so
+vendor/lib64/lib-sec-disp.so
+vendor/lib64/libGPreqcancel.so
+vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
+vendor/lib64/libSecureUILib.so
+vendor/lib64/libStDrvInt.so
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libqisl.so
+vendor/lib64/librpmb.so
+vendor/lib64/libsecureui.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libssd.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8996.so
@@ -233,6 +245,7 @@ bin/netmgrd
 bin/qmuxd
 bin/radish
 bin/rmt_storage
+bin/macloader
 #-app/QtiTelephonyService/QtiTelephonyService.apk
 #-app/shutdownlistener/shutdownlistener.apk
 #-framework/qcnvitems.jar
@@ -289,6 +302,7 @@ vendor/lib64/libvoice-svc.so
 
 # Sensors
 bin/sensorservice
+bin/sensors.qcom
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/mmi_sensor.so
@@ -579,4 +593,5 @@ lib/hw/fingerprint.default.so
 lib64/hw/fingerprint.default.so
 
 # Unknown
-/vendor/firmware/libpn551_fw.so
+vendor/firmware/libpn551_fw.so
+bin/factory.adsp
