@@ -23,8 +23,8 @@ $(call inherit-product-if-exists, vendor/samsung/hero2qltechn/hero2qltechn-vendo
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Boot animation
-# TARGET_SCREEN_HEIGHT := 2560
-# TARGET_SCREEN_WIDTH := 1440
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -142,7 +142,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
 
-
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -151,12 +150,13 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.factory.rc \
     init.qcom.rc \
+    init.qcom.power.rc \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
-    ueventd.qcom.r
+    ueventd.qcom.rc
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
