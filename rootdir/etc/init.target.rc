@@ -428,13 +428,6 @@ on property:ro.securestorage.support=true
     restorecon -R /dev/.secure_storage
     start secure_storage
 
-on property:ro.securestorage.knox=true
-    mkdir /dev/.secure_storage
-    chmod 0711 /dev/.secure_storage
-    chown system system /dev/.secure_storage
-    restorecon -R /dev/.secure_storage
-    start secure_storage
-
 on property:persist.sys.usb.q_config=rndis,acm,diag,adb
     write /sys/class/sensors/ssc_core/mode 1
 
