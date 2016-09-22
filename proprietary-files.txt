@@ -303,6 +303,7 @@ vendor/lib64/libvoice-svc.so
 # Sensors
 bin/sensorservice
 bin/sensors.qcom
+bin/mmi
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/mmi_sensor.so
@@ -595,3 +596,16 @@ lib64/hw/fingerprint.default.so
 # Unknown
 vendor/firmware/libpn551_fw.so
 bin/factory.adsp
+bin/servicemanager
+bin/ip
+bin/iop
+bin/irsc_util
+bin/tftp_server
+bin/wlandutservice
+vendor/bin/RIDLClient.exe
+bin/rild
+bin/diag_uart_log
+bin/diag_mdlog
+bin/smdexe
+bin/at_distributor
+bin/connfwexe
