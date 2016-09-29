@@ -46,15 +46,14 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1 androidboot.selinux=permissive
 BOARD_KERNEL_SEPARATED_DT := true
-# BOARD_DTBTOOL_ARGS := -3
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET     := 0x02200000
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
-TARGET_KERNEL_CONFIG := cm_hero2qlte_chnzh_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/hero2qltechn
+TARGET_KERNEL_CONFIG := cm_hero2qlte_chnzc_defconfig
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 # ANT+
