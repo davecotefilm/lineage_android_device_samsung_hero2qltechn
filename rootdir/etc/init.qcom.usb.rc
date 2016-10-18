@@ -28,16 +28,14 @@
 on init
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    chown system system /sys/class/android_usb/android0/terminal_version
+    chmod 0660 /sys/class/android_usb/android0/terminal_version
 
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     write /sys/class/android_usb/android0/f_ffs/aliases adb
-
-    write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports "BAM2BAM_IPA"
-    write /sys/module/g_android/parameters/mtp_tx_req_len 131072
-    write /sys/module/g_android/parameters/mtp_rx_req_len 131072
 
 # Following are the parameters required for usb functionality. They provide configurable options like
 # product_id/vendor id and allows specifying required functions:
