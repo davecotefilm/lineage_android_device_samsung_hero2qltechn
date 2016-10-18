@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,26 +26,45 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-#
-# Function to start sensors for SSC enabled platforms
-#
-start_sensors()
-{
-    if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
-        mkdir /efs/FactoryApp/sensors/
-        chown -h sensors.sensors /efs/FactoryApp/sensors/
-        chmod -h 775 /efs/FactoryApp/sensors/
+# Update the panel color property and Leds brightness 
+if [ -f /sys/bus/i2c/devices/12-004a/panel_color ]; then
+    # Atmel
+    color=`cat /sys/bus/i2c/devices/12-004a/panel_color`
+elif [ -f /sys/bus/i2c/devices/12-0020/panel_color ]; then
+    color=`cat /sys/bus/i2c/devices/12-0020/panel_color`
+else
+    color="0"
+fi
 
-        chmod -h 775 /persist/sensors
-        chmod -h 664 /persist/sensors/sensors_settings
-        chown -h system.root /persist/sensors/sensors_settings
-
-        mkdir -p /data/misc/sensors
-        chmod -h 775 /data/misc/sensors
-
-        start sensors
-        start factory_adsp
-    fi
-}
-
-start_sensors
+case "$color" in
+    "1")
+        setprop sys.panel.color WHITE
+	echo 40 > /sys/class/leds/red/max_brightness
+        echo 60 > /sys/class/leds/green/max_brightness
+        echo 60 > /sys/class/leds/blue/max_brightness
+        ;;
+    "2")
+        setprop sys.panel.color BLACK
+	echo 35 > /sys/class/leds/red/max_brightness
+        echo 75 > /sys/class/leds/green/max_brightness
+        echo 40 > /sys/class/leds/blue/max_brightness
+        ;;
+    "7")
+        setprop sys.panel.color PURPLE
+	echo 40 > /sys/class/leds/red/max_brightness
+        echo 140 > /sys/class/leds/green/max_brightness
+        echo 120 > /sys/class/leds/blue/max_brightness
+        ;;
+    "8")
+        setprop sys.panel.color GOLDEN
+	echo 45 > /sys/class/leds/red/max_brightness
+        echo 80 > /sys/class/leds/green/max_brightness
+        echo 70 > /sys/class/leds/blue/max_brightness
+        ;;
+    *)
+        setprop sys.panel.color UNKNOWN
+	echo 35 > /sys/class/leds/red/max_brightness
+        echo 75 > /sys/class/leds/green/max_brightness
+        echo 40 > /sys/class/leds/blue/max_brightness
+        ;;
+esac
