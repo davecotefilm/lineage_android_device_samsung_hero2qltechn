@@ -41,17 +41,6 @@ on fs
     wait /dev/block/bootdevice
     mount_all fstab.qcom
 
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    wait /dev/block/bootdevice/by-name/cache
-    check_fs /dev/block/bootdevice/by-name/cache ext4
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
-
-    wait /dev/block/bootdevice/by-name/persist
-    check_fs /dev/block/bootdevice/by-name/persist ext4
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
@@ -61,18 +50,6 @@ on fs
     chown radio system /efs
     chmod 0771 /efs
     restorecon -R /efs
-
-    wait /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
-    restorecon_recursive /dsp
-
-    wait /dev/block/bootdevice/by-name/apnhlos
-    mount vfat /dev/block/bootdevice/by-name/apnhlos /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-
-    wait /dev/block/bootdevice/by-name/modem
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware-modem ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-    wait /dev/block/bootdevice/by-name/bluetooth
-    mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -114,6 +91,11 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group system
 
+#service qfp-daemon /system/bin/qfp-daemon
+#    class late_start
+#    user system
+#    group system drmrpc diag
+
 service qvop-daemon /system/bin/qvop-daemon
     class late_start
     user system
@@ -144,6 +126,28 @@ service gpu_snapshotd /system/bin/gpu_snapshotd -s /sys/class/kgsl/kgsl-3d0/snap
     user system
     group system  
  
+## Allow usb charging to be disabled peristently
+#on property:persist.usb.chgdisabled=1
+#    write /sys/class/power_supply/battery/charging_enabled 0
+#
+#on property:persist.usb.chgdisabled=0
+#    write /sys/class/power_supply/battery/charging_enabled 1
+#
+#service qrngd /system/bin/qrngd -f
+#   class main
+#   user root
+#   group root
+#
+#service qrngp /system/bin/qrngp
+#    class main
+#    user root
+#    group root
+#    oneshot
+#    disabled
+#
+#on property:sys.boot_completed=1
+#    start qrngp
+
 on property:sys.boot_completed=1
    write /proc/iccc_ready 1
 
@@ -157,11 +161,26 @@ service perfd /system/vendor/bin/perfd
    user root
    disabled
 
+#service seempd /system/bin/seempd
+#   class late_start
+#   user system
+#   group system
+#   socket seempdw dgram 0666 system system
+
 service secotad /system/bin/secotad
    class late_start
    user system
    group system
 
+#service mpdecision /system/bin/mpdecision --avg_comp
+#   user root
+#   disabled
+#
+#service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
+#   user system
+#   group system
+#   disabled
+#
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
@@ -173,6 +192,14 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
 
+#service security-check1 /sbin/security_boot_check system
+#    class core
+#    oneshot
+#
+#service security-check2 /sbin/security_boot_check recovery
+#    class core
+#    oneshot
+#
 service time_daemon /system/bin/time_daemon
    class late_start
    user root
@@ -319,16 +346,39 @@ service dtseagleservice /system/bin/dts_eagle_service
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice
 
+#service ppd /system/bin/mm-pp-dpps
+#    class late_start
+#    user system
+#    group system graphics
+#    socket pps stream 0660 system system
+#    disabled
+
 service tlocd /system/bin/tloc_daemon
     class late_start
     user system
     group drmrpc gps net_raw
+
+#on property:init.svc.surfaceflinger=stopped
+#    stop ppd
+
+#on property:init.svc.surfaceflinger=running
+#    start ppd
 
 service energy-awareness /system/bin/energy-awareness
     class main
     user root
     group system
     oneshot
+
+#service hvdcp_opti /system/bin/hvdcp_opti
+#    class main
+#    user root
+#    group root
+
+#service mdtp_service /system/vendor/bin/mdtp_service
+#   class late_start
+#   user system
+#   group system
 
 on charger
     write /sys/devices/system/cpu/cpu2/online 0

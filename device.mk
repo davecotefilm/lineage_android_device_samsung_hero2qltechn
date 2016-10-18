@@ -142,17 +142,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
 
-# Init
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.power.rc \
-    init.qcom.sh \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh \
-    init.target.rc \
-    ueventd.qcom.rc
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
@@ -239,6 +228,29 @@ PRODUCT_PACKAGES += \
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
     libtinyxml
+
+# Ramdisk
+# Device config scripts
+PRODUCT_PACKAGES += \
+    hsic.control.bt.sh \
+    init.qcom.bt.sh \
+    init.qcom.fm.sh \
+    init.qcom.post_boot.sh \
+    qca6234-service.sh \
+    usf_post_boot.sh \
+    usf_settings.sh
+# Device init scripts
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    ueventd.qcom.rc \
+    init.class_main.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
