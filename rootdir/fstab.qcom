@@ -15,6 +15,7 @@
 /dev/block/bootdevice/by-name/dsp            /dsp               ext4    ro,nosuid,nodev,barrier=1,context=u:object_r:dsp_file:s0   wait
 /dev/block/bootdevice/by-name/modem          /firmware          vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0           wait
 /dev/block/bootdevice/by-name/bluetooth      /bt_firmware       vfat    ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0        wait
+/dev/block/bootdevice/by-name/frp            /frp               emmc    defaults                                                    defaults
 
 #externel devices
 /devices/soc/74a4900.sdhci/mmc_host/mmc*                        auto    vfat    defaults    voldmanaged=sdcard:auto 
