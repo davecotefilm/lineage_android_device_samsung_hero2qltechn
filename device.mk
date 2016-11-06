@@ -221,9 +221,13 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Ramdisk
-# Device config scripts
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    ueventd.qcom.rc
 
 # Device init scripts
 PRODUCT_PACKAGES += \
