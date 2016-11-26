@@ -161,10 +161,10 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
-# TARGET_RIL_VARIANT := caf
-# PROTOBUF_SUPPORTED := true
+TARGET_RIL_VARIANT := caf
+PROTOBUF_SUPPORTED := true
 SIM_COUNT := 2
-BOARD_RIL_CLASS := $(PLATFORM_PATH)/ril
+BOARD_RIL_CLASS := $(DEVICE_PATH)/ril
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
