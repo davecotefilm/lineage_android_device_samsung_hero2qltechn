@@ -223,21 +223,15 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.class_main.sh \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
     init.qcom.rc \
+    init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     ueventd.qcom.rc
-
-# Device init scripts
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
-    init.target.rc \
-    ueventd.qcom.rc \
-    init.qcom.sh
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
