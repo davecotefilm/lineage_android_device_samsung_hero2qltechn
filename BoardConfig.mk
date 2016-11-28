@@ -36,7 +36,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno530
-
+ENABLE_CPUSETS := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Bootloader
@@ -92,11 +92,19 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
 
+# Camera
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
 # Charger
 BOARD_BATTERY_DEVICE_NAME := battery
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
+
+# CNE and DPM
+TARGET_LDPRELOAD := libNimsWrap.so
+BOARD_USES_QCNE := true
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
@@ -161,10 +169,8 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
-TARGET_RIL_VARIANT := caf
 PROTOBUF_SUPPORTED := true
-SIM_COUNT := 2
-BOARD_RIL_CLASS := $(DEVICE_PATH)/ril
+TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
