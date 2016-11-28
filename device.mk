@@ -31,8 +31,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Dalvik
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -64,6 +63,15 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
+
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
+
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -72,9 +80,11 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
+    libaudioroute \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libtinycompress \
     libvolumelistener \
     tinymix
 
@@ -93,25 +103,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
-
-PRODUCT_COPY_FILES += \
-    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
-
 # Camera
 PRODUCT_PACKAGES += \
-    libxml2 \
     Snap
+
+# CNE
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig
 
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8996 \
     gralloc.msm8996 \
     hwcomposer.msm8996 \
+    memtrack.msm8996 \
     liboverlay \
     libtinyxml
 
@@ -128,6 +133,10 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 # GPS
+PRODUCT_PACKAGES += \
+    gps.msm8996 \
+    libcurl
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
@@ -151,7 +160,8 @@ PRODUCT_PACKAGES += \
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
-    ethertypes
+    ethertypes \
+    libebtc
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -164,6 +174,10 @@ PRODUCT_COPY_FILES += \
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8996
+
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -202,7 +216,7 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxSwVencHevc \
-#   libOmxVdec \
+#    libOmxVdec \
     libOmxVenc \
     libstagefrighthw
 
@@ -215,6 +229,9 @@ PRODUCT_PACKAGES += \
     dsi_config.xml \
     netmgr_config.xml \
     qmi_config.xml
+
+PRODUCT_PACKAGES += \
+    libjson
 
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
@@ -235,6 +252,11 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.target.rc \
     ueventd.qcom.rc
+
+# RIL
+PRODUCT_PACKAGES += \
+    librmnetctl \
+    libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \
