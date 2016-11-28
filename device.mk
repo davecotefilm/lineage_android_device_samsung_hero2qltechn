@@ -236,11 +236,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
-# RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib64/libsec-ril.so
-    rild.libpath2=/system/lib64/libsec-ril-dsds.so
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996
