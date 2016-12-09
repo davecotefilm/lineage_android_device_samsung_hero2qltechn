@@ -2032,8 +2032,8 @@
         <ctl name="COMP2 Switch" value="1" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Mix Digital Volume" value="76" />
-        <ctl name="RX2 Mix Digital Volume" value="76" />
+        <ctl name="RX1 Mix Digital Volume" value="73" />
+        <ctl name="RX2 Mix Digital Volume" value="73" />
     </path>
 
     <path name="headset-44.1">
@@ -2042,32 +2042,32 @@
         <ctl name="COMP2 Switch" value="1" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Digital Volume" value="76" />
-        <ctl name="RX2 Digital Volume" value="76" />
+        <ctl name="RX1 Digital Volume" value="73" />
+        <ctl name="RX2 Digital Volume" value="73" />
     </path>
 
     <path name="speaker-and-headphones">
         <path name="spk-ear" />
         <ctl name="HPHL Volume" value="2" />
         <ctl name="HPHR Volume" value="2" />
-        <ctl name="RX1 Mix Digital Volume" value="76" />
-        <ctl name="RX2 Mix Digital Volume" value="76" />
+        <ctl name="RX1 Mix Digital Volume" value="73" />
+        <ctl name="RX2 Mix Digital Volume" value="73" />
     </path>
 
     <path name="speaker-and-headphones-44.1">
         <path name="spk-ear-44.1" />
         <ctl name="HPHL Volume" value="2" />
         <ctl name="HPHR Volume" value="2" />
-        <ctl name="RX1 Digital Volume" value="76" />
-        <ctl name="RX2 Digital Volume" value="76" />
+        <ctl name="RX1 Digital Volume" value="73" />
+        <ctl name="RX2 Digital Volume" value="73" />
     </path>
 
     <path name="speaker-and-headphones-bt-sco">
         <path name="spk-ear" />
         <ctl name="HPHL Volume" value="2" />
         <ctl name="HPHR Volume" value="2" />
-        <ctl name="RX1 Mix Digital Volume" value="76" />
-        <ctl name="RX2 Mix Digital Volume" value="76" />
+        <ctl name="RX1 Mix Digital Volume" value="73" />
+        <ctl name="RX2 Mix Digital Volume" value="73" />
     </path>
 
     <path name="speaker-and-bt-sco">
