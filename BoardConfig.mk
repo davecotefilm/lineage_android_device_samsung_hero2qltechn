@@ -54,7 +54,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
-TARGET_KERNEL_CONFIG := cyanogenmod_hero2qlte_chnzc_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_hero2qlte_ch_defconfig
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 # ANT+

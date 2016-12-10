@@ -665,10 +665,10 @@ on property:init.svc.macloader=stopped
     chmod 0664 /data/.rev
 # end of WiFi MFG (TestMode)
 
-#service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
-#    class main
-#    user root
-#    oneshot
+service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
+    class main
+    user root
+    oneshot
 
 service ptt_socket_app /system/bin/ptt_socket_app -d
     class main
@@ -751,11 +751,11 @@ service sensor-sh /system/bin/sh /init.qcom.sensors.sh
     oneshot
     ioprio rt 4
 
-#service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-#    class late_start
-#    user root
-#    disabled
-#    oneshot
+service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
 
 #service qti-testscripts /system/bin/sh /system/etc/init.qcom.testscripts.sh
 #    class late_start
@@ -813,11 +813,11 @@ service battery_monitor /system/bin/battery_monitor
     group system
     disabled
 
-#service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
-#    class late_start
-#    user root
-#    disabled
-#    oneshot
+service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
+    class late_start
+    user root
+    disabled
+    oneshot
 
 service usb_uicc_daemon /system/bin/usb_uicc_client
     class main
@@ -918,7 +918,7 @@ service RIDL /system/vendor/bin/RIDLClient.exe
     # removed for security team - misc bluetooth radio gps wifi diag media_rw
     # limited to 12 groups.  Unused: audio usb net_bt_admin net_bt_stac net_raw net_admin
 
-# Coresight early boot service
+#Coresight early boot service
 #service cs-early-boot /system/bin/sh /persist/coresight/qdss.agent.sh early-boot /system/etc/init.qcom.debug.sh
 #    class core
 #    user root
