@@ -239,24 +239,14 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
+
+PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.carrier.rc \
-    init.class_main.sh \
-    init.qcom.class_core.sh \
-    init.qcom.debug.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.factory.rc \
-    init.qcom.post_boot.sh \
     init.qcom.rc \
-    init.qcom.sensors.sh \
-    init.qcom.sh \
-    init.qcom.uicc.sh \
+    init.qcom.power.rc \
     init.qcom.usb.rc \
-    init.qcom.usb.sh \
-    init.rilcommon.rc \
-    init.sec.boot.sh \
-    init.target.rc \
-    init.usb.rc \
+    init.recovery.qcom.rc \
     ueventd.qcom.rc
 
 # RIL
