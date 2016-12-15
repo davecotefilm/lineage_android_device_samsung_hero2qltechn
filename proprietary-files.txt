@@ -583,7 +583,7 @@ vendor/lib64/libqmi_client_helper.so
 
 # Radio - IMS
 bin/imscmservice
-app/imssettings/imssettings.apk
+-app/ImsSettings/ImsSettings.apk
 vendor/lib64/lib-ims-rcscmjni.so
 vendor/lib64/lib-imsrcs.so
 vendor/lib64/lib-imsrcscm.so
