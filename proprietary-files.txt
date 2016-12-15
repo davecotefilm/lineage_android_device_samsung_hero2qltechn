@@ -540,9 +540,6 @@ bin/rild
 bin/rmt_storage
 bin/macloader
 bin/tftp_server
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
 vendor/bin/qti
 vendor/lib/libqcmaputils.so
 vendor/lib64/libqcmaputils.so
