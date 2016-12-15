@@ -536,6 +536,7 @@ vendor/lib64/libqmiservices.so
 bin/netmgrd
 bin/qmuxd
 bin/radish
+bin/rild
 bin/rmt_storage
 bin/macloader
 bin/tftp_server
@@ -641,12 +642,8 @@ vendor/firmware/libpn551_fw.so
 bin/factory.adsp
 bin/servicemanager
 bin/ip
-bin/iop
-bin/irsc_util
-bin/tftp_server
 bin/wlandutservice
 vendor/bin/RIDLClient.exe
-bin/rild
 bin/diag_uart_log
 bin/diag_mdlog
 bin/smdexe
