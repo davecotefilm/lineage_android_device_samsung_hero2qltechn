@@ -638,6 +638,8 @@ vendor/lib64/libTimeService.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # Unknown
+vendor/lib/libmm-disp-apis.so
+vendor/lib64/libmm-disp-apis.so
 vendor/firmware/libpn551_fw.so
 bin/factory.adsp
 bin/servicemanager
