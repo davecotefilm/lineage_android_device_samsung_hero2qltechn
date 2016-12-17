@@ -249,6 +249,7 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.rilcommon.rc \
     ueventd.qcom.rc
 
 # RIL
