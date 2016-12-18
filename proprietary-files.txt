@@ -470,6 +470,15 @@ vendor/lib/libmmcamera2_companion_s5k4e6xx_cc.so
 etc/firmware/ois_fw_dom.bin
 etc/firmware/ois_fw_sec.bin
 
+# Mobicore
+bin/cs
+bin/mcDriverDaemon
+lib/libMcClient.so
+lib64/libMcClient.so
+app/mcRegistry/07010000000000000000000000000000.tlbin
+app/mcRegistry/ffffffff000000000000000000000004.tlbin
+app/mcRegistry/ffffffffd00000000000000000000004.tlbin
+
 # Network
 
 # Perf
@@ -540,6 +549,9 @@ bin/rild
 bin/rmt_storage
 bin/macloader
 bin/tftp_server
+#etc/data/dsi_config.xml
+#etc/data/netmgr_config.xml
+#etc/data/qmi_config.xml
 vendor/bin/qti
 vendor/lib/libqcmaputils.so
 vendor/lib64/libqcmaputils.so
@@ -581,7 +593,7 @@ vendor/lib64/libqmi_client_helper.so
 
 # Radio - IMS
 bin/imscmservice
--app/ImsSettings/ImsSettings.apk
+app/ImsSettings/ImsSettings.apk
 vendor/lib64/lib-ims-rcscmjni.so
 vendor/lib64/lib-imsrcs.so
 vendor/lib64/lib-imsrcscm.so
@@ -633,6 +645,41 @@ vendor/lib64/libTimeService.so
 
 # Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
+
+# Wifi
+etc/wifi/bcmdhd_apsta.bin_b1
+etc/wifi/bcmdhd_apsta.bin_b90s_b1
+etc/wifi/bcmdhd_apsta.bin_c0
+etc/wifi/bcmdhd_ibss.bin_b1
+etc/wifi/bcmdhd_ibss.bin_b90s_b1
+etc/wifi/bcmdhd_ibss.bin_c0
+etc/wifi/bcmdhd_mfg.bin_b1
+etc/wifi/bcmdhd_mfg.bin_b90s_b1
+etc/wifi/bcmdhd_mfg.bin_c0
+etc/wifi/bcmdhd_mfg2.bin_b1
+etc/wifi/bcmdhd_mfg2.bin_b90s_b1
+etc/wifi/bcmdhd_mfg2.bin_c0
+etc/wifi/bcmdhd_sta.bin_b1
+etc/wifi/bcmdhd_sta.bin_b90s_b1
+etc/wifi/bcmdhd_sta.bin_c0
+etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_mfg.txt_b1
+etc/wifi/nvram_mfg.txt_c0
+etc/wifi/nvram_mfg.txt_murata
+etc/wifi/nvram_mfg.txt_murata_b1
+etc/wifi/nvram_mfg.txt_murata_c0
+etc/wifi/nvram_mfg.txt_wisol
+etc/wifi/nvram_mfg.txt_wisol_b1
+etc/wifi/nvram_mfg.txt_wisol_c0
+etc/wifi/nvram_net.txt
+etc/wifi/nvram_net.txt_b1
+etc/wifi/nvram_net.txt_c0
+etc/wifi/nvram_net.txt_murata
+etc/wifi/nvram_net.txt_murata_b1
+etc/wifi/nvram_net.txt_murata_c0
+etc/wifi/nvram_net.txt_wisol
+etc/wifi/nvram_net.txt_wisol_b1
+etc/wifi/nvram_net.txt_wisol_c0
 
 # Unknown
 vendor/lib/libmm-disp-apis.so
