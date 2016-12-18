@@ -26,6 +26,7 @@
 #
 
 import init.qcom.usb.rc
+import init.usb.configfs.rc
 import init.rilcommon.rc
 import ueventd.qcom.rc
 
