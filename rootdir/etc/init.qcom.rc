@@ -26,6 +26,8 @@
 #
 
 import init.qcom.usb.rc
+import init.rilcommon.rc
+import ueventd.qcom.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -44,11 +46,23 @@ on init
     mkdir /efs 0771 radio system	
     mkdir /preload 0771 system system
 
-    export EXTERNAL_STORAGE /sdcard1
-
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard1
+    symlink /sdcard /storage/sdcard
+    symlink /sdcard1 /external_sd
+    symlink /storage/usbdisk /mnt/usbdisk
+
+    export EXTERNAL_STORAGE /sdcard
+
+    #Reactivation Lock
+    symlink /dev/block/platform/soc/624000.ufshc/by-name/steady /dev/block/steady
+    chown system system /proc/avc_msg
+    chmod 0660 /proc/avc_msg
+    #Google FRP solution
+    symlink /dev/block/platform/soc/624000.ufshc/by-name/persistent /dev/block/persistent
+
+    # Link /vendor to /system/vendor for devices without a vendor partition.
+    symlink /system/vendor /vendor
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
