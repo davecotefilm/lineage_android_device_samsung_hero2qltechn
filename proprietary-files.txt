@@ -411,15 +411,8 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-apis.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/lib-sec-disp.so
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
+
+# Signed graphics firmware
 etc/firmware/a530_gpmu.fw2
 etc/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw
@@ -647,6 +640,8 @@ vendor/lib64/libTimeService.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wifi
+bin/cnss-daemon
+bin/cnss_diag
 etc/wifi/bcmdhd_apsta.bin_b1
 etc/wifi/bcmdhd_apsta.bin_b90s_b1
 etc/wifi/bcmdhd_apsta.bin_c0
