@@ -93,5 +93,51 @@ Number  Start (sector)    End (sector)  Size       Code  Name
   23         1414955         7794682       24.3G   0700  userdata
 
 
+root@hero2qltechn:/ # ls -l /dev/block/platform/soc/624000.ufshc/by-name/      
+aboot -> /dev/block/sdd10
+apdp -> /dev/block/sdd17
+apnhlos -> /dev/block/sda16
+bluetooth -> /dev/block/sdd12
+boot -> /dev/block/sda18
+bota -> /dev/block/sda12
+cache -> /dev/block/sda22
+cmnlib -> /dev/block/sdd15
+cmnlib64 -> /dev/block/sdd16
+ddr -> /dev/block/sdd20
+devcfg -> /dev/block/sda10
+devinfo -> /dev/block/sdd11
+dip -> /dev/block/sdd8
+dpo -> /dev/block/sdd19
+dsp -> /dev/block/sdd7
+efs -> /dev/block/sda6
+fota -> /dev/block/sda13
+frp -> /dev/block/sda11
+fsc -> /dev/block/sda3
+fsg -> /dev/block/sdd4
+hyp -> /dev/block/sdd3
+keymaster -> /dev/block/sdd14
+keystore -> /dev/block/sda9
+lksecapp -> /dev/block/sdd13
+mdtp -> /dev/block/sdd9
+misc -> /dev/block/sda8
+modem -> /dev/block/sda17
+modemst1 -> /dev/block/sda1
+modemst2 -> /dev/block/sda2
+msadp -> /dev/block/sdd18
+pad -> /dev/block/sdd21
+param -> /dev/block/sda7
+persdata -> /dev/block/sda20
+persist -> /dev/block/sda5
+persistent -> /dev/block/sda14
+pmic -> /dev/block/sdd6
+recovery -> /dev/block/sda19
+rpm -> /dev/block/sdd1
+sec -> /dev/block/sdd5
+ssd -> /dev/block/sda4
+steady -> /dev/block/sda15
+system -> /dev/block/sda21
+tz -> /dev/block/sdd2
+userdata -> /dev/block/sda23
+xbl -> /dev/block/sdb1
 
 
