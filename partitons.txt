@@ -1,0 +1,97 @@
+root@hero2qltechn:/ # cat /proc/partitions
+major minor  #blocks  name
+
+   7        0      98304 loop0
+ 253        0    2097152 vnswap0
+ 179        0   62533632 mmcblk0
+ 179        1   62532608 mmcblk0p1
+   8       16       4096 sdb
+   8       17       3072 sdb1
+   8        0   31178752 sda
+   8        1       1536 sda1
+   8        2       1536 sda2
+   8        3          4 sda3
+   8        4          8 sda4
+   8        5      32768 sda5
+   8        6      20480 sda6
+   8        7      10240 sda7
+   8        8       1024 sda8
+   8        9        512 sda9
+   8       10        128 sda10
+   8       11        512 sda11
+   8       12      12288 sda12
+   8       13       4096 sda13
+   8       14       1024 sda14
+   8       15       1024 sda15
+ 259        6      97280 sda16
+ 259        7      87040 sda17
+ 259        8      77824 sda18
+ 259        9      77824 sda19
+ 259       10       9216 sda20
+ 259       11    5017600 sda21
+ 259       12     204800 sda22
+ 259       13   25518912 sda23
+   8       48      61440 sdd
+   8       49        512 sdd1
+   8       50       2048 sdd2
+   8       51        512 sdd3
+   8       52       1536 sdd4
+   8       53         16 sdd5
+   8       54        512 sdd6
+   8       55      16384 sdd7
+   8       56       1024 sdd8
+   8       57      32768 sdd9
+   8       58       2048 sdd10
+   8       59          4 sdd11
+   8       60       1024 sdd12
+   8       61        384 sdd13
+   8       62        256 sdd14
+   8       63        256 sdd15
+ 259        0        256 sdd16
+ 259        1        128 sdd17
+ 259        2        128 sdd18
+ 259        3          4 sdd19
+ 259        4       1024 sdd20
+ 259        5        572 sdd21
+   8       32       4096 sdc
+   8       33       3072 sdc1
+
+
+root@hero2qltechn:/ # fdisk -l dev/block/sda                                   
+Note: sector size is 4096 (not 512)
+Found valid GPT with protective MBR; using GPT
+
+Disk dev/block/sda: 62357504 sectors, 1920M
+Logical sector size: 4096
+Disk identifier (GUID): 98101b32-bbe2-4bf2-a06e-2bb33d000c20
+Partition table holds up to 28 entries
+First usable sector is 6, last usable sector is 7794682
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1             264             647       1536K   0700  modemst1
+   2             648            1031       1536K   0700  modemst2
+   3            1032            1032        4096   0700  fsc
+   4            1033            1034        8192   0700  ssd
+   5            1035            9226       32.0M   0700  persist
+   6            9227           14346       20.0M   0700  efs
+   7           14347           16906       10.0M   0700  param
+   8           16907           17162       1024K   0700  misc
+   9           17163           17290        512K   0700  keystore
+  10           17291           17322        128K   0700  devcfg
+  11           17323           17450        512K   0700  frp
+  12           17451           20522       12.0M   0700  bota
+  13           20523           21546       4096K   0700  fota
+  14           21547           21802       1024K   0700  persistent
+  15           21803           22058       1024K   0700  steady
+  16           22059           46378       95.0M   0700  apnhlos
+  17           46379           68138       85.0M   0700  modem
+  18           68139           87594       76.0M   0700  boot
+  19           87595          107050       76.0M   0700  recovery
+  20          107051          109354       9216K   0700  persdata
+  21          109355         1363754       4900M   0700  system
+  22         1363755         1414954        200M   0700  cache
+  23         1414955         7794682       24.3G   0700  userdata
+
+
+
+
