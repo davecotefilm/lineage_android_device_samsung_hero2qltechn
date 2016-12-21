@@ -31,16 +31,17 @@ import init.rilcommon.rc
 import ueventd.qcom.rc
 
 on early-init
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+    
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     mkdir /firmware-modem 0771 system system
-    symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
     mkdir /persist/data 0700 system system
     mount tmpfs tmpfs /data
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
-
+    symlink /data/tombstones /tombstones
+    
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -53,14 +54,15 @@ on init
     symlink /sdcard1 /external_sd
     symlink /storage/usbdisk /mnt/usbdisk
 
-    export EXTERNAL_STORAGE /sdcard
+    export EXTERNAL_STORAGE /sdcard1
 
     #Reactivation Lock
-    symlink /dev/block/platform/soc/624000.ufshc/by-name/steady /dev/block/steady
+    symlink /dev/block/platform/624000.ufshc/by-name/STEADY /dev/block/steady
+    #Google FRP solution
+    symlink /dev/block/platform/624000.ufshc/by-name/PERSISTENT /dev/block/persistent
+
     chown system system /proc/avc_msg
     chmod 0660 /proc/avc_msg
-    #Google FRP solution
-    symlink /dev/block/platform/soc/624000.ufshc/by-name/persistent /dev/block/persistent
 
     # Link /vendor to /system/vendor for devices without a vendor partition.
     symlink /system/vendor /vendor
