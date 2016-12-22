@@ -29,6 +29,7 @@ TARGET_SCREEN_WIDTH := 1440
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
@@ -150,7 +151,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/Synaptics_RMI4_TouchPad_Sensor.idc:system/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc \
     $(LOCAL_PATH)/idc/ft5x06_ts.idc:system/usr/idc/ft5x06_ts.idc \
     $(LOCAL_PATH)/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-#   $(LOCAL_PATH)/idc/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
 
 # IPACM
 PRODUCT_PACKAGES += \

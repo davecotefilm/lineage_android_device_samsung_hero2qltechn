@@ -97,13 +97,17 @@ BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
-BOARD_BATTERY_DEVICE_NAME := battery
-BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+RED_LED_PATH := "/sys/class/leds/led_r/brightness"
+GREEN_LED_PATH := "/sys/class/leds/led_g/brightness"
+BLUE_LED_PATH := "/sys/class/leds/led_b/brightness"
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
+CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 
 # CNE and DPM
-TARGET_LDPRELOAD := libNimsWrap.so
+#TARGET_LDPRELOAD := libNimsWrap.so
 BOARD_USES_QCNE := true
 
 # CMHW
@@ -154,7 +158,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 BOARD_NFC_CHIPSET := pn548
 TARGET_USES_NQ_NFC := true
 
-# Power
+# PowerHAL
 TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm
@@ -168,7 +172,6 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # RIL
-PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 
 # SELinux

@@ -12,10 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Release name
+PRODUCT_RELEASE_NAME := hero2qltechn
+
 $(call inherit-product, device/samsung/hero2qltechn/device.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := hero2qltechn
@@ -23,5 +26,3 @@ PRODUCT_NAME := cm_hero2qltechn
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G9350
 PRODUCT_MANUFACTURER := samsung
-
-$(call inherit-product-if-exists, vendor/samsung/hero2qltechn/hero2qltechn-vendor.mk)

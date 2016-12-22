@@ -26,8 +26,8 @@
 #
 
 import init.qcom.usb.rc
-import init.usb.configfs.rc
 import init.rilcommon.rc
+import init.usb.configfs.rc
 import ueventd.qcom.rc
 
 on early-init
@@ -77,7 +77,6 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
-    exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
 
 on fs
     wait /dev/block/bootdevice

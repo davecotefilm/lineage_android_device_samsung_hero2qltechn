@@ -12,29 +12,14 @@ av.offload.enable=true
 ro.qc.sdk.audio.fluencetype=fluence
 ro.qc.sdk.audio.ssr=false
 use.voice.path.for.pcm.voip=true
-
 ##fluencetype can be "fluence" or "fluencepro" or "none"
 ro.qc.sdk.audio.fluencetype=none
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 
-rec.playback.conc.disabled=true
-audio.ds1.metainfo.key=273
-dmid=-1286820014
-
 # Bluetooth
-ro.bluetooth.dun=true
-ro.bluetooth.hfp.ver=1.7
-ro.bluetooth.sap=true
-ro.qualcomm.bluetooth.ftp=true
-ro.qualcomm.bluetooth.hfp=true
-ro.qualcomm.bluetooth.hsp=true
-ro.qualcomm.bluetooth.map=true
-ro.qualcomm.bluetooth.nap=true
-ro.qualcomm.bluetooth.opp=true
-ro.qualcomm.bluetooth.pbap=true
-ro.qualcomm.bt.hci_transport=smd
+ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
 
 # Camera
 camera2.portability.force_api=1
@@ -42,52 +27,88 @@ camera2.portability.force_api=1
 # Data modules
 persist.data.dpm.enable=true
 
+# Dalvik/Art
+ro.sys.fw.dex2oat_thread_count=4
+dalvik.vm.image-dex2oat-filter=speed
+dalvik.vm.dex2oat-filter=speed
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+
+# Default USB mode
+persist.service.adb.enable=1                                                    
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+
+
 # Display
-#persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196609
 ro.sf.lcd_density=640
+persist.demo.hdmirotationlock=false
 
-# Factory Reset Protection
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
+# HWUI_BUILD_PROPERTIES
+ro.hwui.texture_cache_size=88
+ro.hwui.layer_cache_size=58
+ro.hwui.path_cache_size=16
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.shape_cache_size=4
+ro.hwui.gradient_cache_size=2
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=4096
+ro.hwui.text_large_cache_height=2048
+ro.hwui.fbo_cache_size=16
 
-# NITZ
-persist.rild.nitz_plmn=
-persist.rild.nitz_long_ons_0=
-persist.rild.nitz_long_ons_1=
-persist.rild.nitz_long_ons_2=
-persist.rild.nitz_long_ons_3=
-persist.rild.nitz_short_ons_0=
-persist.rild.nitz_short_ons_1=
-persist.rild.nitz_short_ons_2=
-persist.rild.nitz_short_ons_3=
+# Nfc
+ro.nfc.sec_hal=true
+ro.nfc.port=I2C
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.sys.fw.bg_apps_limit=60
+ro.sys.fw.bg_apps_limit=40
+
+#property to enable VDS WFD solution
+persist.hwc.enable_vds=1
 
 # Radio
-ro.baseband.arch=msm
-ro.ril.telephony.mqanelements=5
-ro.telephony.call_ring.multiple=false
-persist.radio.NETWORK_SWITCH=1
-persist.radio.fill_eons=1
+ro.use_data_netmgrd=true
+persist.radio.sib16_support=0
+persist.cne.feature=1
+persist.radio.lte_vrte_ltd=1
+persist.radio.tdscdma_present=1
+persist.radio.apm_sim_not_pwdn=1
 persist.radio.custom_ecc=1
-persist.radio.VT_ENABLE=1
-persist.radio.VT_HYBRID_ENABLE=1
-persist.radio.ROTATION_ENABLE=1
-persist.radio.RATE_ADAPT_ENABLE=1
-persist.radio.videopause.mode=1
-persist.radio.apm_sim_not_pwdn=0
-persist.radio.apm_mdm_not_pwdn=1
-persist.radio.cs_srv_type=1
-persist.radio.snapshot_timer=0
+telephony.lteOnCdmaDevice=1
+ro.telephony.default_network=9,1
+
+# Security
+ro.config.dmverity=false
+ro.config.tima=0
+ro.config.knox=0
+ro.config.rkp=false
+ro.config.kap_default_on=false
+
+# Storage
+ro.securestorage.support=false
+
+# System
+ro.product.name=hero2qltechn
+ro.product.model=SM-G9350
+ro.product.brand=samsung
+ro.product.device=hero2qltechn
+ro.product.board=msm8996
+ro.chipname=MSM8996
 
 # Multi Sim
 persist.radio.multisim.config=dsds
 ro.multisim.simslotcount=2
 rild.libpath=/system/lib64/libsec-ril.so
 rild.libpath2=/system/lib64/libsec-ril-dsds.so
-ro.telephony.default_network=9,1
 
 # Wifi
 wifi.interface=wlan0
