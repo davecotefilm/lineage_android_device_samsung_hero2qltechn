@@ -29,4 +29,6 @@ ifeq ($(TARGET_DEVICE),hero2qltechn)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+include device/samsung/hero2qltechn/tftp.mk
+
 endif
