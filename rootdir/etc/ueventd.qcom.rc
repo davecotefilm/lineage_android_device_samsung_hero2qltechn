@@ -237,13 +237,3 @@
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
 /dev/hbtp_vm              0660   system     system
-
-# Mobicore
-/dev/mobicore				0600 	system		system
-/dev/mobicore-user			0666 	system		system
-
-# Google FRP solution
-/dev/block/platform/soc/624000.ufshc/by-name/persistent    0660    system    system
-
-# Reactivation lock
-/dev/block/platform/soc/624000.ufshc/by-name/steady    0660    system    system

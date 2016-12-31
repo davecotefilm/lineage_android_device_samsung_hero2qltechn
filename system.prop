@@ -17,6 +17,7 @@ ro.qc.sdk.audio.fluencetype=none
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
+dmid=-1286820014
 
 # Bluetooth
 ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
@@ -48,6 +49,9 @@ persist.sys.usb.config=mtp,adb
 ro.opengles.version=196609
 ro.sf.lcd_density=640
 persist.demo.hdmirotationlock=false
+
+# Factory Reset Protection
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # HWUI_BUILD_PROPERTIES
 ro.hwui.texture_cache_size=88
@@ -86,23 +90,8 @@ persist.radio.custom_ecc=1
 telephony.lteOnCdmaDevice=1
 ro.telephony.default_network=9,1
 
-# Security
-ro.config.dmverity=false
-ro.config.tima=0
-ro.config.knox=0
-ro.config.rkp=false
-ro.config.kap_default_on=false
-
 # Storage
 ro.securestorage.support=false
-
-# System
-ro.product.name=hero2qltechn
-ro.product.model=SM-G9350
-ro.product.brand=samsung
-ro.product.device=hero2qltechn
-ro.product.board=msm8996
-ro.chipname=MSM8996
 
 # Multi Sim
 persist.radio.multisim.config=dsds

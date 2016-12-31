@@ -18,7 +18,7 @@
 BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/hero2qltechn
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-TARGET_OTA_ASSERT_DEVICE := hero2qltechn,hero2qltexx,hero2qltedcm
+TARGET_OTA_ASSERT_DEVICE := hero2qltechn
 USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
@@ -45,16 +45,17 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1 androidboot.selinux=permissive
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02200000 --tags_offset 0x02000000 --board RILPA14A000KU
+BOARD_MKBOOTIMG_ARGS := --board RILPA14A000KU
 BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_TAGS_OFFSET := 0x02000000
+BOARD_RAMDISK_OFFSET     := 0x02200000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_APPEND_DTB := true
+BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
-TARGET_KERNEL_CONFIG := cm_hero2qltechn_defconfig
+TARGET_KERNEL_CONFIG := lineage_hero2qlte_chnzc_defconfig
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 # ANT+
@@ -90,7 +91,6 @@ USE_CUSTOM_AUDIO_POLICY := 1
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
 
 # Camera
 BOARD_QTI_CAMERA_32BIT_ONLY := true
@@ -132,12 +132,12 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
-# Filesystem
+# Filesystem (Taken from TWRP device tree)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 79691776
-BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
+BOARD_CACHEIMAGE_PARTITION_SIZE := 314572800
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 79691776
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5138022400
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 26131365888
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5609881600
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 27044855808 # 27044872192 - 16384 (footer)
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -145,7 +145,11 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # FM
 #AUDIO_FEATURE_ENABLED_FM := true
 
-# Init
+# Init properties from bootloader version, ex. model info
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_hero2qltechn
+TARGET_RECOVERY_DEVICE_MODULES := libinit_hero2qltechn
+TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_TREE)/init/init_hero2qltechn.cpp
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Keymaster
@@ -155,21 +159,26 @@ TARGET_PROVIDES_KEYMASTER := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # NFC
-BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_CHIPSET := pn548
 TARGET_USES_NQ_NFC := true
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := qcom
+
+# Properties
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/hero2qltechn/recovery/recovery_keys.c
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
 TARGET_RIL_VARIANT := caf
@@ -182,19 +191,16 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 USE_SENSOR_MULTI_HAL := true
 
 # Wifi
-BOARD_HAVE_SAMSUNG_WIFI          := true
-BOARD_WLAN_DEVICE                := bcmdhd
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_NVRAM_PATH           := "/etc/wifi/nvram_net.txt"
-WIFI_DRIVER_NVRAM_PATH_PARAM	 := "/sys/module/dhd/parameters/nvram_path"
-WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
-WIFI_BAND                        := 802_11_ABG
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+BOARD_WLAN_DEVICE           := bcmdhd
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcm4359_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4359.bin"
+WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4359.bin"
 
 # inherit from the proprietary version
 -include vendor/samsung/hero2qltechn/BoardConfigVendor.mk

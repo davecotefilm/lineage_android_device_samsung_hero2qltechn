@@ -104,8 +104,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
 
+# Browser
+#PRODUCT_PACKAGES += \
+#    Gello
+
 # Camera
 PRODUCT_PACKAGES += \
+    libxml2 \
     Snap
 
 # CNE
@@ -240,13 +245,16 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.mdm.sh \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.sh \
+    init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.rilcommon.rc \
-    init.sec.boot.sh \
-    init.usb.configfs.rc \
+	init.target.rc \
     ueventd.qcom.rc
 
 # RIL
