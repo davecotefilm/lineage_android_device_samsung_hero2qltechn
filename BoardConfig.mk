@@ -42,6 +42,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8996
 TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL := false
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1 androidboot.selinux=permissive
@@ -116,12 +117,26 @@ BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/cmhw \
     hardware/cyanogen/cmhw
 
+# Enable dex pre-opt to speed up initial boot
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_PIC := true
+      ifneq ($(TARGET_BUILD_VARIANT),user)
+        # Retain classes.dex in APK's for non-user builds
+        DEX_PREOPT_DEFAULT := nostripping
+      endif
+    endif
+endif
+
 # Display
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API :=true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE:= false
@@ -132,15 +147,21 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
-# Filesystem (Taken from TWRP device tree)
+#Enable SW based full disk encryption
+TARGET_SWV8_DISK_ENCRYPTION := false
+
+# Filesystem (Taken from partitions.txt)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 79691776
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 79691776
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5138022400
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 26131365888
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # FM
 #AUDIO_FEATURE_ENABLED_FM := true
