@@ -26,5 +26,5 @@
 /dev/block/bootdevice/by-name/tz             /tz                emmc    defaults    defaults    
 #VOLD
 /dev/block/bootdevice/by-name/hidden         /preload                ext4    defaults    voldmanaged=preload:auto
-/dev/block/mmcblk0p1 /dev/block/mmcblk0                      auto    vfat    defaults    voldmanaged=sdcard:auto
+/dev/block/mmcblk0p1 /dev/block/mmcblk0                      auto    vfat    defaults    voldmanaged=sdcard1:auto,encryptable=footer
 /devices/15400000.usb/15400000.dwc3/xhci-hcd.2.auto/usb*     auto    auto    defaults    voldmanaged=usb:auto
