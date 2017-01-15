@@ -31,82 +31,249 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
+#ADSP
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 adsp.b07 \
     adsp.b08 adsp.b09 adsp.mdt
 
-ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/image/,$(notdir $(ADSP_IMAGES)))
+ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/,$(notdir $(ADSP_IMAGES)))
 $(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "ADSP firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/adsp/$(notdir $@) $@
+	$(hide) ln -sf /firmware-modem/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(ADSP_SYMLINKS)
 
+#Cmnlib
+CMN_IMAGES := \
+    cmnlib.b00 cmnlib.b01 cmnlib.b02 cmnlib.b03 cmnlib.b04 cmnlib.b05 cmnlib.mdt
+
+CMN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CMN_IMAGES)))
+$(CMN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CMN firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CMN_SYMLINKS)
+
+#Cmnlib64
+CMN64_IMAGES := \
+    cmnlib64.b00 cmnlib64.b01 cmnlib64.b02 cmnlib64.b03 cmnlib64.b04 cmnlib64.b05 cmnlib.mdt
+
+CMN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CMN_IMAGES)))
+$(CMN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CMN firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CMN64_SYMLINKS)
+
+#Dm-Verity
+DMV_IMAGES := \
+    dmverity.b00 dmverity.b01 dmverity.b02 dmverity.b03 dmverity.b04 dmverity.b05 dmverity.b06 dmverity.mdt
+
+DMV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(DMV_IMAGES)))
+$(DMV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "DMV firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(DMV_SYMLINKS)
+
+#Fingerprint
+FPR_IMAGES := \
+    fingerpr.b00 fingerpr.b01 fingerpr.b02 fingerpr.b03 fingerpr.b04 fingerpr.b05 fingerpr.b06 fingerpr.mdt
+
+DMV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPR_IMAGES)))
+$(DMV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "FPR firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(FPR_SYMLINKS)
+
+#ISDB
+ISDB_IMAGES := \
+    isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.b04 isdbtmm.b05 isdbtmm.b06 isdbtmm.mdt
+
+ISDB_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(ISDB_IMAGES)))
+$(ISDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "ISDB firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(ISDB_SYMLINKS)
+
+#MBA
 MBA_IMAGES := \
     mba.mbn
 
-MBA_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/image/,$(notdir $(MBA_IMAGES)))
+MBA_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/,$(notdir $(MBA_IMAGES)))
 $(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "MBA firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/radio/$(notdir $@) $@
+	$(hide) ln -sf /firmware-modem/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
 
+#Modem
 MODEM_IMAGES := \
     modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
     modem.b06 modem.b07 modem.b08 modem.b09 modem.b10 modem.b11 \
     modem.b12 modem.b13 modem.b15 modem.b16 modem.b17 modem.b18 \
     modem.b19 modem.b20 modem.mdt
 
-MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/image/,$(notdir $(MODEM_IMAGES)))
+MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware-modem/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/radio/$(notdir $@) $@
+	$(hide) ln -sf /firmware-modem/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
+# Prov
+PROV_IMAGES := \
+    prov.b00 prov.b01 prov.b02 prov.b03 prov.b04 prov.b05 prov.b06 prov.mdt \
+
+PROV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PROV_IMAGES)))
+$(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Prov firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(PROV_SYMLINKS)
+
+# SKM
+SKM_IMAGES := \
+    skm.b00 skm.b01 skm.b02 skm.b03 skm.b04 skm.b05 skm.b06 skm.mdt
+
+SKM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SKM_IMAGES)))
+$(SKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SKM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SKM_SYMLINKS)
+
+# SKMM
+SKMMTA_IMAGES := \
+    skmm_ta.b00 skmm_ta.b01 skmm_ta.b02 skmm_ta.b03 skmm_ta.b04 skmm_ta.b05 skmm_ta.b06 skmm_ta.mdt
+
+SKMMTA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SKMMTA_IMAGES)))
+$(SKMMTA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SKMM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SKMMTA_SYMLINKS)
+
+#SLPI
 SLPI_IMAGES := \
     slpi.b00 slpi.b01 slpi.b02 slpi.b03 slpi.b04 slpi.b05 slpi.b06 \
     slpi.b07 slpi.b08 slpi.b09 slpi.b10 slpi.b11 slpi.b12 slpi.b13 \
     slpi.b14 slpi.b15 slpi.mdt
 
-SLPI_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/image/,$(notdir $(SLPI_IMAGES)))
+SLPI_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(SLPI_IMAGES)))
 $(SLPI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "SLPI firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/slpi/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SLPI_SYMLINKS)
 
+# SSHDcap
+SSHDCPAP_IMAGES := \
+    sshdcpap.b00 sshdcpap.b01 sshdcpap.b02 sshdcpap.b03 sshdcpap.b04 sshdcpap.b05 sshdcpap.b06 sshdcpap.mdt
+
+SSHDCPAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SSHDCPAP_IMAGES)))
+$(SSHDCPAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SSHDCPAP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SSHDCPAP_SYMLINKS)
+
+#TBASE
+TBASE_IMAGES := \
+    tbase.b00 tbase.b01 tbase.b02 tbase.b03 tbase.b04 tbase.b05 tbase.b06 tbase.mdt
+
+TBASE_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TBASE_IMAGES)))
+$(TBASE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SSHDCPAP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(TBASE_SYMLINKS)
+
+#TIMA
+TIMA_IMAGES := \
+    tima_atn.b00 tima_atn.b01 tima_atn.b02 tima_atn.b03 tima_atn.b04 tima_atn.b05 tima_atn.b06 tima_atn.mdt \
+    tima_key.b00 tima_key.b01 tima_key.b02 tima_key.b03 tima_key.b04 tima_key.b05 tima_key.b06 tima_key.mdt \
+    tima_lkm.b00 tima_lkm.b01 tima_lkm.b02 tima_lkm.b03 tima_lkm.b04 tima_lkm.b05 tima_lkm.b06 tima_lkm.mdt \
+    tima_pkm.b00 tima_pkm.b01 tima_pkm.b02 tima_pkm.b03 tima_pkm.b04 tima_pkm.b05 tima_pkm.b06 tima_pkm.mdt
+
+TIMA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TIMA_IMAGES)))
+$(TIMA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Tima firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(TIMA_SYMLINKS)
+
+#TZ
+TZ_IMAGES := \
+    tz_ccm.b00 tz_ccm.b01 tz_ccm.b02 tz_ccm.b03 tz_ccm.b04 tz_ccm.b05 tz_ccm.b06 tz_ccm.mdt \
+    tz_iccc.b00 tz_iccc.b01 tz_iccc.b02 tz_iccc.b03 tz_iccc.b04 tz_iccc.b05 tz_iccc.b06 tz_iccc.mdt \
+    tz_otp.b00 tz_otp.b01 tz_otp.b02 tz_otp.b03 tz_otp.b04 tz_otp.b05 tz_otp.b06 tz_otp.mdt
+
+TZ_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TZ_IMAGES)))
+$(TZ_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "tz firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(TZ_SYMLINKS)
+
+#VENUS
 VENUS_IMAGES := \
     venus.b00 venus.b01 venus.b02 venus.b03 venus.b04 venus.mdt
 
-VENUS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/image/,$(notdir $(VENUS_IMAGES)))
+VENUS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(VENUS_IMAGES)))
 $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "VENUS firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/venus/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
 
+#Widevine
 WIDEVINE_IMAGES := \
     windevine.b00 windevine.b01 windevine.b02 windevine.b03 windevine.b04 \
     windevine.b05 windevine.b06 windevine.mdt
 
-WIDEVINE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/image/,$(notdir $(WIDEVINE_IMAGES)))
+WIDEVINE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WIDEVINE_IMAGES)))
 $(WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WIDEVINE firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /system/etc/firmware/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WIDEVINE_SYMLINKS)
 
