@@ -62,14 +62,27 @@ ALL_DEFAULT_INSTALLED_MODULES += $(CMN_SYMLINKS)
 CMN64_IMAGES := \
     cmnlib64.b00 cmnlib64.b01 cmnlib64.b02 cmnlib64.b03 cmnlib64.b04 cmnlib64.b05 cmnlib.mdt
 
-CMN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CMN_IMAGES)))
-$(CMN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "CMN firmware link: $@"
+CMN64_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CMN64_IMAGES)))
+$(CMN64_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CMN64 firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(CMN64_SYMLINKS)
+
+#CPPF
+CPPF_IMAGES := \
+    cppf.b00 cppf.b01 cppf.b02 cppf.b03 cppf.b04 cppf.b05 cppf.b06 cppf.mdt
+
+CPPF_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(CPPF_IMAGES)))
+$(CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CPPF firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CPPF_SYMLINKS)
 
 #Dm-Verity
 DMV_IMAGES := \
@@ -88,8 +101,8 @@ ALL_DEFAULT_INSTALLED_MODULES += $(DMV_SYMLINKS)
 FPR_IMAGES := \
     fingerpr.b00 fingerpr.b01 fingerpr.b02 fingerpr.b03 fingerpr.b04 fingerpr.b05 fingerpr.b06 fingerpr.mdt
 
-DMV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPR_IMAGES)))
-$(DMV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+FPR_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPR_IMAGES)))
+$(FPR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "FPR firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
@@ -139,9 +152,9 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
-# Prov
+#Prov
 PROV_IMAGES := \
-    prov.b00 prov.b01 prov.b02 prov.b03 prov.b04 prov.b05 prov.b06 prov.mdt \
+    prov.b00 prov.b01 prov.b02 prov.b03 prov.b04 prov.b05 prov.b06 prov.mdt
 
 PROV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PROV_IMAGES)))
 $(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -152,7 +165,46 @@ $(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(PROV_SYMLINKS)
 
-# SKM
+#QCA6174_FW_3_0
+BDWLAN_IMAGES := \
+    bdwlan30.bin
+
+BDWLAN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(BDWLAN_IMAGES)))
+$(BDWLAN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "BDWLAN firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(BDWLAN_SYMLINKS)
+
+#SEM
+SEM_IMAGES := \
+    sem.b00 sem.b01 sem.b02 sem.b03 sem.b04 sem.b05 sem.b06 sem.mdt
+
+SEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SEM_IMAGES)))
+$(SEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SEM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SEM_SYMLINKS)
+
+#Skeymast
+SKEYMAST_IMAGES := \
+    skeymast.b00 skeymast.b01 skeymast.b02 skeymast.b03 skeymast.b04 skeymast.b05 skeymast.b06 skeymast.mdt
+
+SKM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SKEYMAST_IMAGES)))
+$(SKEYMAST_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SKEYMAST firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SKEYMAST_SYMLINKS)
+
+#SKM
 SKM_IMAGES := \
     skm.b00 skm.b01 skm.b02 skm.b03 skm.b04 skm.b05 skm.b06 skm.mdt
 
@@ -165,13 +217,13 @@ $(SKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SKM_SYMLINKS)
 
-# SKMM
+#SKMM
 SKMMTA_IMAGES := \
     skmm_ta.b00 skmm_ta.b01 skmm_ta.b02 skmm_ta.b03 skmm_ta.b04 skmm_ta.b05 skmm_ta.b06 skmm_ta.mdt
 
 SKMMTA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SKMMTA_IMAGES)))
 $(SKMMTA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "SKMM firmware link: $@"
+	@echo "SKMMTA firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
@@ -193,7 +245,49 @@ $(SLPI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SLPI_SYMLINKS)
 
-# SSHDcap
+#Softsim
+SOFTSIM_IMAGES := \
+    softsim.b00 softsim.b01 softsim.b02 softsim.b03 softsim.b04 \
+    softsim.b05 softsim.b06 softsim.mdt
+
+SOFTSIM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(SOFTSIM_IMAGES)))
+$(SOFTSIM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SOFTSIM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SOFTSIM_SYMLINKS)
+
+#SMPLAP32
+SMPLAP32_IMAGES := \
+    smplap32.b00 smplap32.b01 smplap32.b02 smplap32.b03 smplap32.b04 smplap32.b05 \
+    smplap32.b06 smplap32.mdt
+
+SPLAP32_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SMPLAP32_IMAGES)))
+$(SMPLAP32_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SMPLAP32 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SMPLAP32_SYMLINKS)
+
+#SMPLAP64
+SMPLAP64_IMAGES := \
+    smplap64.b00 smplap64.b01 smplap64.b02 smplap64.b03 smplap64.b04 smplap64.b05 \
+    smplap64.b06 smplap64.mdt
+
+SMPLAP64_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SMPLAP64_IMAGES)))
+$(SMPLAP64_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SMPLAP64 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SMPLAP64_SYMLINKS)
+
+#SSHDcap
 SSHDCPAP_IMAGES := \
     sshdcpap.b00 sshdcpap.b01 sshdcpap.b02 sshdcpap.b03 sshdcpap.b04 sshdcpap.b05 sshdcpap.b06 sshdcpap.mdt
 
@@ -206,13 +300,27 @@ $(SSHDCPAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SSHDCPAP_SYMLINKS)
 
+#Tasha Codec
+CPE_IMAGES := \
+    cpe_9335.b08 cpe_9335.b09 cpe_9335.b11 cpe_9335.b14 cpe_9335.b16 cpe_9335.b18 cpe_9335.b19 \
+    cpe_9335.b20 cpe_9335.b22 cpe_9335.b24 cpe_9335.b26 cpe_9335.b28 cpe_9335.b29 cpe_9335.mdt
+
+CPE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(CPE_IMAGES)))
+$(CPE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CPE firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CPE_SYMLINKS)
+
 #TBASE
 TBASE_IMAGES := \
     tbase.b00 tbase.b01 tbase.b02 tbase.b03 tbase.b04 tbase.b05 tbase.b06 tbase.mdt
 
 TBASE_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TBASE_IMAGES)))
 $(TBASE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "SSHDCPAP firmware link: $@"
+	@echo "TBASE firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
@@ -243,12 +351,25 @@ TZ_IMAGES := \
 
 TZ_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TZ_IMAGES)))
 $(TZ_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "tz firmware link: $@"
+	@echo "TZ firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(TZ_SYMLINKS)
+
+#UTF30
+UTF30_IMAGES := \
+    utf30.bin
+
+UTF30_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(UTF30_IMAGES)))
+$(UTF30_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "UTF30 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(UTF30_SYMLINKS)
 
 #VENUS
 VENUS_IMAGES := \
@@ -276,6 +397,19 @@ $(WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WIDEVINE_SYMLINKS)
+
+#Wilocity Wifi
+WIL6210_IMAGES := \
+    wil6210.brd wil6210.fw
+
+WIL6210_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WIL6210_IMAGES)))
+$(WIL6210_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "WIL6210 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WIL6210_SYMLINKS)
 
 .PHONY: RFS_LINK_PROCESSING
 RFS_LINK_PROCESSING: $(LOCAL_INSTALLED_MODULE)
