@@ -106,8 +106,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
 
 # Browser
-#PRODUCT_PACKAGES += \
-#    Gello
+PRODUCT_PACKAGES += \
+    Gello
 
 # Camera
 PRODUCT_PACKAGES += \
