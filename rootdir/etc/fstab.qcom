@@ -12,6 +12,7 @@
 /dev/block/bootdevice/by-name/efs            /efs               ext4    noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic                                 wait,check
 /dev/block/bootdevice/by-name/apnhlos	     /firmware	        vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0                                wait
 /dev/block/bootdevice/by-name/modem          /firmware-modem    vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0                                wait    
+/dev/block/bootdevice/by-name/bluetooth      /bt_firmware       vfat    ro,shortname=lower,uid=1002,gid=3002,dmask=222,fmask=333,context=u:object_r:bt_firmware_file:s0           wait
 /dev/block/bootdevice/by-name/misc           /misc              emmc    defaults    defaults
 /dev/block/bootdevice/by-name/persistent     /persistent        emmc    defaults    defaults
 /dev/block/bootdevice/by-name/steady         /steady            emmc    defaults    defaults
@@ -25,6 +26,6 @@
 /dev/block/bootdevice/by-name/sec            /sec               emmc    defaults    defaults   
 /dev/block/bootdevice/by-name/tz             /tz                emmc    defaults    defaults    
 #VOLD
-/dev/block/bootdevice/by-name/hidden         /preload                ext4    defaults    voldmanaged=preload:auto
+#/dev/block/bootdevice/by-name/hidden         /preload                ext4    defaults    voldmanaged=preload:auto
 /devices/soc/74a4900.sdhci/mmc_host/mmc*                     auto    vfat    defaults    voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/15400000.usb/15400000.dwc3/xhci-hcd.2.auto/usb*     auto    auto    defaults    voldmanaged=usb:auto

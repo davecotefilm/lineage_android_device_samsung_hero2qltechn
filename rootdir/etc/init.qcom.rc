@@ -616,6 +616,9 @@ on post-fs-data
     mkdir /data/misc/qvop 0660 system system
     mkdir /data/misc/audio_pp 0771 media audio
 
+on property:init.svc.bootanim=running
+    write /sys/class/leds/wled/brightness 4095
+
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
