@@ -1,5 +1,6 @@
 /*
-   Copyright (c) 2013, The Linux Foundation. All rights reserved.
+   Copyright (c) 2015, The Linux Foundation. All rights reserved.
+   Copyright (C) 2016 The CyanogenMod Project.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -28,24 +29,39 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
+#include "log.h"
 #include "util.h"
 
-void vendor_load_properties()
+#include "init_msm8996.h"
+
+void gsm_properties(char const default_network[])
 {
-	char bootloader[PROP_VALUE_MAX];
-
-	property_get("ro.bootloader", bootloader);
-
-	if (strstr(bootloader, "G9350ZH")) {
-		/* Hong Kong */
-		property_set("ro.product.name", "hero2qltezh");
-	} else {
-		/* all other variants become China Open */
-		property_set("ro.product.name", "hero2qltezc");
-	}
-	property_set("ro.product.model", "SM-G9350");
-	property_set("ro.product.device", "hero2qltechn");
+    property_set("telephony.lteOnGsmDevice", "1");
+    property_set("ro.telephony.default_network", default_network);
+    property_set("ro.telephony.ril.config", "newDialCode");
 }
+
+void init_target_properties()
+{
+    std::string platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
+        return;
+
+    std::string bootloader = property_get("ro.bootloader");
+
+    if (bootloader.find("G9350") == 0) {
+        /* hong kong */
+        property_set("ro.build.fingerprint", "samsung/hero2qltezh/hero2qltechn:6.0.1/MMB29M/G9350ZHU2APL1:user/release-keys");
+        property_set("ro.build.description", "hero2qltezh-user 6.0.1 MMB29M G9350ZHU2APL1 release-keys");
+        property_set("ro.product.model", "SM-G9350");
+        property_set("ro.product.device", "hero2qltechn");
+        gsm_properties("9");
+
+    std::string device = property_get("ro.product.device");
+    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
+}
+
