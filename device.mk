@@ -137,11 +137,15 @@ PRODUCT_PACKAGES += \
 # Device init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.carrier.rc \
     init.qcom.rc \
     init.qcom.power.rc \
+    init.qcom.factory.rc \
     init.qcom.usb.rc \
+    init.rillcommon.rc \
     init.target.rc \
     ueventd.qcom.rc \
+    init.usb.configfs.rc \
     init.qcom.sh
 
 # CNE
