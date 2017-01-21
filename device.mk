@@ -142,7 +142,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.factory.rc \
     init.qcom.usb.rc \
-    init.rillcommon.rc \
+    init.rilcommon.rc \
     init.target.rc \
     ueventd.qcom.rc \
     init.usb.configfs.rc \
