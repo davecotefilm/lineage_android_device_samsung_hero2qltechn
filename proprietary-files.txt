@@ -571,12 +571,12 @@ vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
 # Time services
-bin/time_daemon
 -app/TimeService/TimeService.apk
-vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
-vendor/lib64/libtime_genoff.so
+bin/time_daemon
 vendor/lib64/libTimeService.so
+-vendor/lib64/libtime_genoff.so
+vendor/lib/libTimeService.so
+-vendor/lib/libtime_genoff.so
 
 # Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
