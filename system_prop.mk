@@ -63,6 +63,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
     ro.use_data_netmgrd=true
 
+# Default USB mode
+    persist.service.adb.enable=1 \                                                  
+    persist.service.debuggable=1 \
+    persist.sys.usb.config=adb
+
+
 # Display (Qualcomm AD)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
@@ -99,7 +105,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196610 \
-    ro.sf.lcd_density=480 \
+    ro.sf.lcd_density=640 \
     sdm.debug.disable_rotator_split=1 \
     sdm.perf_hint_window=50
 
@@ -149,7 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libpath=/system/lib64/libsec-ril.so \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=9,1 \
     ro.telephony.default_cdma_sub=0 \
@@ -183,7 +189,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+    ro.sys.sdcardfs=true \
+    ro.securestorage.support=false
 
 # TimeService
 PRODUCT_PROPERTY_OVERRIDES += \
