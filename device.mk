@@ -177,6 +177,12 @@ PRODUCT_PACKAGES += \
     fingerprintd \
     SamsungPocketMode
 
+# FM radio
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
