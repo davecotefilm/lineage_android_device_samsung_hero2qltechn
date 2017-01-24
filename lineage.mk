@@ -40,7 +40,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-samsung
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="hero2qltechn" \
     PRODUCT_NAME="hero2qltezh" \
-    BUILD_FINGERPRINT="samsung/hero2qltezh/hero2qltechn:7.0/NRD90M/6.12.22:user/release-keys" \
-    PRIVATE_BUILD_DESC="hero2qltezh-user 7.0 NRD90M 6.12.22 release-keys"
+    BUILD_FINGERPRINT="samsung/hero2qltezh/hero2qltechn:6.0.1/MMB29M/G9350ZHU2APK2:user/release-keys" \
+    PRIVATE_BUILD_DESC="hero2qltezh-user 6.0.1 MMB29M G9350ZHU2APK2 release-keys"
 
 TARGET_VENDOR := samsung
