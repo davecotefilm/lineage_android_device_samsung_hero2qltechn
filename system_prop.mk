@@ -4,10 +4,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192 \
     audio.deep_buffer.media=true \
     audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=true \
+    audio.offload.gapless.enabled=false \
     audio.offload.min.duration.secs=15 \
     audio.offload.multiaac.enable=true \
-    audio.offload.multiple.enabled=true \
+    audio.offload.multiple.enabled=false \
     audio.offload.passthrough=false \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
@@ -23,7 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
-    ro.qc.sdk.audio.fluencetype=fluence \
+    ro.qc.sdk.audio.fluencetype=none \
     qcom.hw.aac.encoder=true \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
@@ -49,7 +49,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display (Qualcomm AD)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.cabl=0 \
+    ro.qualcomm.cabl=1 \
     ro.qcom.ad=1 \
     ro.qcom.ad.sensortype=2
 
@@ -82,7 +82,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196610 \
-    ro.sf.lcd_density=560 \
+    ro.sf.lcd_density=640 \
     sdm.debug.disable_rotator_split=1 \
     sdm.perf_hint_window=50
 
@@ -155,7 +155,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true \
-    ro.securestorage.support=false
 
 # TimeService
 PRODUCT_PROPERTY_OVERRIDES += \
