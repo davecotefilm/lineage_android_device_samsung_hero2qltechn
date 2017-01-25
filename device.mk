@@ -27,7 +27,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Device was launched with M
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -139,10 +139,11 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.carrier.rc \
     init.qcom.rc \
-    init.qcom.power.rc \
     init.qcom.factory.rc \
     init.qcom.usb.rc \
+    init.rilchip.rc \
     init.rilcommon.rc \
+    init.rilepdg.rc \
     init.target.rc \
     ueventd.qcom.rc \
     init.usb.configfs.rc \
