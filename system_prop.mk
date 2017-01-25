@@ -30,23 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.speaker=true
 
 # Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    bt.max.hfpclient.connections=1 \
-    qcom.bluetooth.soc=rome \
-    ro.bluetooth.dun=true \
-    ro.bluetooth.hfp.ver=1.7 \
-    ro.bluetooth.sap=true \
-    ro.btconfig.if=uart \
-    ro.btconfig.vendor=qcom \
-    ro.btconfig.chip=QCA6164 \
-    ro.btconfig.dev=/dev/ttyHS0 \
-    ro.qualcomm.bluetooth.ftp=true \
-    ro.qualcomm.bluetooth.hfp=true \
-    ro.qualcomm.bluetooth.hsp=true \
-    ro.qualcomm.bluetooth.map=true \
-    ro.qualcomm.bluetooth.nap=true \
-    ro.qualcomm.bluetooth.opp=true \
-    ro.qualcomm.bluetooth.pbap=true
+    ro.bt.bdaddr_path="/efs/bluetooth/bt_addr
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -63,17 +47,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
     ro.use_data_netmgrd=true
 
-# Default USB mode
-    persist.service.adb.enable=1 \                                                  
-    persist.service.debuggable=1 \
-    persist.sys.usb.config=adb
-
-
 # Display (Qualcomm AD)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
     ro.qcom.ad=1 \
-    ro.qcom.ad.calib.data=/system/etc/calib.cfg \
     ro.qcom.ad.sensortype=2
 
 # Display feature (bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB)
@@ -105,7 +82,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196610 \
-    ro.sf.lcd_density=640 \
+    ro.sf.lcd_density=560 \
     sdm.debug.disable_rotator_split=1 \
     sdm.perf_hint_window=50
 
@@ -126,18 +103,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C \
     persist.nfc.smartcard.config=SIM1,SIM2,eSE1
-
-# NITZ
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.rild.nitz_plmn="" \
-    persist.rild.nitz_long_ons_0="" \
-    persist.rild.nitz_long_ons_1="" \
-    persist.rild.nitz_long_ons_2="" \
-    persist.rild.nitz_long_ons_3="" \
-    persist.rild.nitz_short_ons_0="" \
-    persist.rild.nitz_short_ons_1="" \
-    persist.rild.nitz_short_ons_2="" \
-    persist.rild.nitz_short_ons_3=""
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -198,8 +163,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.usb.controller=6a00000.dwc3
+    sys.usb.controller=15400000.dwc3
 
+# Default USB mode
+    persist.service.adb.enable=1 \                                                  
+    persist.service.debuggable=1 \
+    persist.sys.usb.config=adb
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
