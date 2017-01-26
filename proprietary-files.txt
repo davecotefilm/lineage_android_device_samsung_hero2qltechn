@@ -656,10 +656,6 @@ lib64/libsynaFpSensorTestNwd.so
 lib64/hw/gps.default.so
 vendor/firmware/ois_fw_dom.bin
 vendor/firmware/ois_fw_sec.bin
-vendor/lib/libMcRegistry.so:lib/libMcRegistry.so
-vendor/lib64/libMcRegistry.so:lib64/libMcRegistry.so
-vendor/lib/libMcClient.so:lib/libMcClient.so
-vendor/lib64/libMcClient.so:lib64/libMcClient.so
 lib/libril.so
 lib/libsecnativefeature.so
 lib/libxml2.so
